@@ -1,5 +1,9 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'node:14'
+    }
+  }
 
   parameters {
         choice(name: 'ENV', choices: ['dev', 'test', 'prod'], description: 'Target environment')
