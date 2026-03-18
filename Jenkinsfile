@@ -1,24 +1,11 @@
 pipeline {
   agent {
-    docker {
-      image 'ubuntu:22.04'
-      args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
-    }
+    any
   }
 
   parameters {
     choice(name: 'ENV', choices: ['dev', 'test', 'prod'], description: 'Target environment')
   }
-
-  stages {
-    stage('Install Docker CLI') {
-      steps {
-        sh '''
-          apt-get update
-          apt-get install -y docker.io
-        '''
-      }
-    }
 
     stage('Checkout') {
       steps {
