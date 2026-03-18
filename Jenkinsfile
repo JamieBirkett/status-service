@@ -1,10 +1,10 @@
 pipeline {
   agent any
-  
+
   parameters {
     choice(name: 'ENV', choices: ['dev', 'test', 'prod'], description: 'Target environment')
   }
-
+  stages {
     stage('Checkout') {
       steps {
         checkout scm
