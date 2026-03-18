@@ -1,8 +1,6 @@
 pipeline {
-  agent {
-    any
-  }
-
+  agent any
+  
   parameters {
     choice(name: 'ENV', choices: ['dev', 'test', 'prod'], description: 'Target environment')
   }
